@@ -1,7 +1,7 @@
 # assignmentB1-EVA-SCHOLZCARLSON
 Eva Scholz-Carlson's repository with a new function for plotting a boxplot + dotplot
 
-## Files:
+### Files:
 
 **README.md** This README file
 
@@ -14,5 +14,7 @@ Eva Scholz-Carlson's repository with a new function for plotting a boxplot + dot
 **assignment1B_files** Folder with plots generated in assignment1B.Rmd
 
 **.gitignore** Code to ignore
+
+### Use:
 
 This function can be used to generate a simultaneous dotplot and boxplot, plotting a numerical variable (y) by a categorical variable (x). Many parameters can be controlled, see assignment1B.Rmd for more details.
