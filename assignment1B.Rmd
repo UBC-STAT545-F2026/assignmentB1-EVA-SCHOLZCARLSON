@@ -1,0 +1,49 @@
+---
+title: "box-dot-plot"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Load libraries:
+
+```{r}
+library(roxygen2)
+library(tidyverse)
+library(testthat, quietly = TRUE)
+library(palmerpenguins, quietly = TRUE)
+```
+
+## Function to create a plot with boxes and points plotted:
+
+```{r cars}
+
+#' Descirption of function goes here
+#' 
+#' @param x description of the parameter input x goes here
+#' @returns description of what function reutrns goes here
+
+boxdotplot <- function()
+
+hcmst_subset |>
+  drop_na() |> #dropping all NAs in subset before plotting
+  ggplot(aes(x = income, y = relationship_duration)) + 
+  geom_boxplot(fill = "cadetblue3", #adding boxplot with blue color
+               alpha = 0.3, #increasing transparency
+               outlier.shape = NA,) + #removing outlier plotting since all points are plotted in dotplot
+  geom_dotplot(binaxis='y', #binning along y axis instead of x
+               binwidth = 0.2, #setting 0.2 year binwidth to avoid excessive binning of data
+               stackdir = 'center',
+               dotsize = 7, #note: smaller binwidths result in smaller dot sizes, thus they must be proportionally adjusted
+               fill="cadetblue4",
+               alpha = 0.7) +
+  theme_bw() +
+  labs(
+    title = "Relationship duration by subject income level",
+    x = "Income level",
+    y = "Relationship duration (years)") +
+  theme(axis.text.x = element_text(angle=45, vjust=1, hjust=1)) #rotating axis labels 45 degrees with correct alignment
+```
+
